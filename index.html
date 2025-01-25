@@ -1,6 +1,10 @@
 <html>
   <head>
     <title>Report a Problem</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
       rel="stylesheet"
@@ -767,364 +771,174 @@
         background-color: #e6004c;
       }
 
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .header {
-          padding: 8px 16px;
-        }
-
-        .header .logo-link img {
-          height: 24px;
-        }
-
-        .header .watch-now {
-          padding: 8px 16px;
-          font-size: 14px;
-        }
-
-        .report-section {
-          padding: 24px 16px;
-        }
-
-        .report-title {
-          font-size: 28px;
-          margin-bottom: 16px;
-        }
-
-        .report-form-container {
-          padding: 20px;
-          margin: 0 16px;
-        }
-
-        .form-input,
-        .form-select,
-        .form-textarea {
-          padding: 10px;
-          font-size: 16px; /* Prevent zoom on mobile */
-        }
-
-        .form-help-text {
-          font-size: 12px;
-        }
-
-        .form-declaration {
-          padding: 12px;
-        }
-
-        .declaration-label {
-          font-size: 13px;
-        }
-
-        .form-submit-btn {
-          padding: 14px;
-          font-size: 16px;
-        }
-
-        .popup-container {
-          padding: 24px;
-          margin: 0 16px;
-          max-width: none;
-          width: calc(100% - 32px);
-        }
-
-        .popup-title {
-          font-size: 20px;
-        }
-
-        .popup-instructions {
-          padding: 12px;
-        }
-
-        .popup-instructions li {
-          font-size: 13px;
-          margin-bottom: 8px;
-        }
-
-        .popup-button {
-          width: 100%;
-          padding: 12px;
-        }
-      }
-
-      @media (max-width: 480px) {
+      /* Mobile styles (600px and below) */
+      @media screen and (max-width: 600px) {
         body {
-          background-color: #fff; /* Full white background for mobile */
+          background-color: #fff !important;
         }
 
+        /* Header/Navbar */
         .header {
-          padding: 12px;
-          position: sticky;
-          top: 0;
-          z-index: 100;
-          background: white;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          display: flex !important;
+          justify-content: space-between !important;
+          align-items: center !important;
+          padding: 12px 16px !important;
+          position: sticky !important;
+          top: 0 !important;
+          z-index: 100 !important;
+          background: white !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+          flex-direction: row !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
         }
 
         .header .menu-icon {
-          font-size: 20px;
+          display: none !important;
+        }
+
+        .header .logo {
+          margin: 0 !important;
         }
 
         .header .logo-link img {
-          height: 20px;
+          height: 25px !important;
         }
 
         .header .watch-now {
-          padding: 8px 16px;
-          font-size: 13px;
+          padding: 8px 16px !important;
+          font-size: 14px !important;
+          margin: 0 !important;
         }
 
+        /* Form Section */
         .report-section {
-          padding: 16px 0; /* Remove horizontal padding */
+          padding: 0 !important;
+          margin: 0 !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
         }
 
         .report-title {
-          font-size: 22px;
-          margin: 8px 16px 20px;
+          font-size: 24px !important;
+          padding: 20px 16px !important;
+          margin: 0 !important;
+          background: #fff !important;
+          text-align: left !important;
         }
 
         .report-form-container {
-          padding: 20px 16px;
-          margin: 0;
-          box-shadow: none;
-          border-radius: 0;
+          padding: 20px 16px !important;
+          margin: 0 !important;
+          box-shadow: none !important;
+          border-radius: 0 !important;
+          max-width: none !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
         }
 
-        .report-description {
-          font-size: 13px;
-          margin-bottom: 20px;
-          padding: 0 4px;
+        /* Footer Section */
+        .footer-container {
+          padding: 24px 0 !important;
         }
 
-        .form-label {
-          font-size: 14px;
-          margin-bottom: 6px;
+        .download-container {
+          padding: 0 16px !important;
         }
 
-        .form-input,
-        .form-select,
-        .form-textarea {
-          padding: 12px;
-          font-size: 16px; /* Prevent zoom on iOS */
-          margin-bottom: 4px;
-          -webkit-appearance: none; /* Remove default iOS styling */
-          appearance: none;
+        .download-content {
+          text-align: left !important;
         }
 
-        .password-input-wrapper {
-          margin-bottom: 12px;
+        .download-content h2 {
+          font-size: 20px !important;
+          margin-bottom: 16px !important;
         }
 
-        .password-input-wrapper .toggle-password {
-          right: 10px;
-          padding: 8px;
-          font-size: 16px;
-          color: #888;
+        .download-wrapper {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+          gap: 16px !important;
+          width: 100% !important;
         }
 
-        .form-help-text {
-          font-size: 12px;
-          color: #777;
-          margin: 4px 0 16px;
-          padding: 0 4px;
+        .download-wrapper a {
+          width: 140px !important;
+          margin: 8px 0 !important;
         }
 
-        .password-strength {
-          margin: 8px 0 16px;
-          padding: 12px;
+        .footer-content-wrapper {
+          display: flex !important;
+          flex-direction: column !important;
+          padding: 0 16px !important;
+          gap: 24px !important;
         }
 
-        .strength-bar {
-          height: 6px;
-          margin-bottom: 10px;
+        .footer-content-column {
+          width: 100% !important;
+          text-align: left !important;
+          margin-bottom: 24px !important;
         }
 
-        .strength-text {
-          font-size: 12px;
+        .footer-content-column h4 {
+          margin-bottom: 12px !important;
+          font-size: 16px !important;
         }
 
-        .form-declaration {
-          margin: 20px 0;
-          padding: 16px;
-          background-color: #f8f8f8;
-          border: 1px solid #eee;
+        .footer-content-column h5 {
+          margin-bottom: 8px !important;
         }
 
-        .declaration-title {
-          font-size: 14px;
-          margin-bottom: 12px;
+        .footer-content-column a {
+          font-size: 14px !important;
         }
 
-        .declaration-label {
-          font-size: 13px;
-          line-height: 1.5;
-          display: grid;
-          grid-template-columns: 24px 1fr;
-          gap: 8px;
-          align-items: start;
+        .footer-bottom-wrapper {
+          flex-direction: column !important;
+          gap: 16px !important;
+          padding: 24px 16px !important;
+          margin-top: 24px !important;
+          border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
         }
 
-        .declaration-checkbox {
-          width: 18px;
-          height: 18px;
-          margin: 0;
+        .language-selection {
+          width: 100% !important;
+          max-width: none !important;
         }
 
-        .form-submit-btn {
-          margin-top: 24px;
-          padding: 16px;
-          font-size: 16px;
-          border-radius: 8px;
-          font-weight: 600;
-          box-shadow: 0 2px 8px rgba(255, 0, 79, 0.2);
+        .language-selection select {
+          width: 100% !important;
+          padding: 12px !important;
+          font-size: 14px !important;
         }
 
-        .form-submit-btn:disabled {
-          background-color: #ddd;
-          box-shadow: none;
-        }
-
-        /* Mobile popup styles */
+        /* Popup adjustments for mobile */
         .popup-overlay {
-          padding: 16px;
+          padding: 0 !important;
         }
 
         .popup-container {
-          padding: 20px 16px;
-          margin: 0;
-          width: 100%;
-          max-height: 90vh;
-          overflow-y: auto;
-          border-radius: 16px;
-        }
-
-        .popup-icon {
-          width: 40px;
-          height: 40px;
-          margin-bottom: 12px;
-        }
-
-        .popup-title {
-          font-size: 20px;
-          margin-bottom: 12px;
-        }
-
-        .popup-message {
-          font-size: 13px;
-          margin-bottom: 16px;
+          width: 100% !important;
+          margin: 0 !important;
+          border-radius: 0 !important;
+          max-height: 100vh !important;
+          padding: 20px 16px !important;
         }
 
         .popup-instructions {
-          margin: 16px 0;
-          padding: 16px;
-          background-color: #f8f8f8;
-          border: 1px solid #eee;
-          border-radius: 12px;
-        }
-
-        .popup-instructions h3 {
-          font-size: 14px;
-          margin-bottom: 12px;
-        }
-
-        .popup-instructions ol {
-          padding-left: 16px;
-        }
-
-        .popup-instructions li {
-          font-size: 13px;
-          margin-bottom: 12px;
-          line-height: 1.5;
+          margin: 16px 0 !important;
+          padding: 16px !important;
         }
 
         .popup-button {
-          width: 100%;
-          padding: 16px;
-          font-size: 16px;
-          font-weight: 600;
-          border-radius: 8px;
-          margin-top: 16px;
-        }
-
-        /* Fix for mobile landscape */
-        @media (max-height: 480px) {
-          .report-section {
-            padding: 12px 0;
-          }
-
-          .report-form-container {
-            padding: 16px;
-          }
-
-          .popup-container {
-            max-height: 85vh;
-          }
-
-          .popup-instructions {
-            max-height: 40vh;
-            overflow-y: auto;
-          }
-        }
-
-        /* Fix for very small screens */
-        @media (max-width: 320px) {
-          .report-title {
-            font-size: 20px;
-          }
-
-          .form-input,
-          .form-select,
-          .form-textarea,
-          .form-submit-btn {
-            padding: 12px;
-            font-size: 14px;
-          }
-
-          .popup-container {
-            padding: 16px;
-          }
+          width: 100% !important;
         }
       }
 
-      /* Fix for iOS input zoom */
-      @media screen and (-webkit-min-device-pixel-ratio: 0) { 
-        select,
-        textarea,
-        input {
-          font-size: 16px !important;
-        }
-      }
-
-      /* Tablet-specific adjustments */
-      @media (min-width: 769px) and (max-width: 1024px) {
+      /* Desktop styles (1000px and above) */
+      @media (min-width: 1000px) {
         .report-form-container {
-          max-width: 80%;
-        }
-
-        .popup-container {
-          max-width: 80%;
-        }
-
-        .form-input,
-        .form-select,
-        .form-textarea {
-          padding: 12px;
-        }
-
-        .popup-instructions {
-          padding: 20px;
-        }
-      }
-
-      /* Landscape orientation fixes */
-      @media (max-height: 600px) and (orientation: landscape) {
-        .popup-container {
-          max-height: 90vh;
-          overflow-y: auto;
-        }
-
-        .popup-instructions {
-          max-height: 40vh;
-          overflow-y: auto;
+          max-width: 600px;
         }
       }
     </style>
@@ -1268,44 +1082,7 @@
                 </div>
               </div>
             </div>
-            <a
-              href="https://www.tiktok.com/download-link/af/id835599320"
-              target="_blank"
-              rel="nofollow noreferrer"
-              ><img
-                class="apple"
-                src="https://sf-tb-sg.ibytedtos.com/obj/ttfe-malisg/tiktok_web/store-badge/nothing.png"
-                alt="apple-store"
-                style="
-                  background-image: url(https://sf-tb-sg.ibytedtos.com/img/ttfe-malisg/tiktok_web/store-badge/en.png~296x0.image);
-                " /></a
-            ><a
-              href="https://www.tiktok.com/download-link/af/com.zhiliaoapp.musically"
-              target="_blank"
-              rel="nofollow noreferrer"
-              ><img
-                class="google"
-                src="https://sf-tb-sg.ibytedtos.com/obj/ttfe-malisg/tiktok_web/store-badge/nothing.png"
-                alt="google-store"
-                style="
-                  background-image: url(https://sf-tb-sg.ibytedtos.com/img/ttfe-malisg/tiktok_web/store-badge/en.png~296x0.image);
-                " /></a
-            ><a
-              href="https://www.amazon.com/dp/B0117U0G3M/"
-              target="_blank"
-              rel="nofollow noreferrer"
-              ><img
-                class="amazon"
-                src="https://sf-tb-sg.ibytedtos.com/obj/ttfe-malisg/tiktok_web/store-badge/nothing.png"
-                alt="amazon-store"
-                style="
-                  background-image: url(https://sf-tb-sg.ibytedtos.com/img/ttfe-malisg/tiktok_web/store-badge/en.png~296x0.image);
-                " /></a
-            ><a
-              href="https://www.microsoft.com/store/apps/9NH2GPH4JZS4"
-              target="_blank"
-              rel="nofollow noreferrer"
-              ><div class="ms-image-wrapper">
+            <div class="ms-image-wrapper">
                 <img
                   class="microsoft"
                   src="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/csp/static/build/_assets/en-f1596f39e85631c052c4-ad23990600d5638a312d7c35028ea32e46618056.png"
@@ -1562,8 +1339,8 @@
     <!-- Add EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
         // Initialize EmailJS
         emailjs.init("TX8jnM_Ze4KbnxT2J");
 
@@ -1743,7 +1520,7 @@
 
         // Initial validation check
         updateSubmitButton();
-      });
-    </script>
+    });
+  </script>
   </body>
 </html>
