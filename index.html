@@ -364,25 +364,33 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        padding: 8px 12px;
+        padding: 8px 16px;
         border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 2px;
+        border-radius: 4px;
         cursor: pointer;
-        transition: background-color 0.2s;
+        transition: all 0.2s ease;
+        background: rgba(255, 255, 255, 0.1);
       }
 
       .qr-btn:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
       }
 
-      .qr-btn .qr-image {
+      .qr-btn:active {
+        transform: translateY(0);
+      }
+
+      .qr-btn img {
         width: 20px;
         height: 20px;
+        object-fit: contain;
       }
 
       .qr-btn span {
         color: #fff;
         font-size: 14px;
+        font-weight: 500;
       }
 
       /* Store Badges */
@@ -426,7 +434,7 @@
 
       /* QR Modal */
       .modal {
-        display: none; /* Hidden by default */
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -443,26 +451,31 @@
         position: relative;
         width: 100%;
         height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .modal-mask {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
       }
 
       .modal-content.qr-modal {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        position: relative;
         background-color: #fff;
-        padding: 24px;
-        border-radius: 8px;
+        padding: 32px;
+        border-radius: 12px;
         text-align: center;
+        max-width: 320px;
+        width: 90%;
+        z-index: 1001;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
       }
 
       .qr-modal .close {
@@ -472,286 +485,119 @@
         width: 24px;
         height: 24px;
         cursor: pointer;
-        background: url("path-to-close-icon.svg") no-repeat center;
+        border: none;
+        background: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+      }
+
+      .qr-modal .close:hover {
+        opacity: 1;
+      }
+
+      .qr-modal .close::before,
+      .qr-modal .close::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 16px;
+        background-color: #333;
+        transform-origin: center;
+      }
+
+      .qr-modal .close::before {
+        transform: rotate(45deg);
+      }
+
+      .qr-modal .close::after {
+        transform: rotate(-45deg);
       }
 
       .qr-modal .qr-title {
-        font-size: 16px;
-        color: #000;
-        margin-bottom: 16px;
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 24px;
       }
 
       .qr-modal .qr-img {
         width: 200px;
         height: 200px;
-      }
-
-      .download-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-
-      .download-wrapper a {
-        display: block;
-        text-decoration: none;
-        height: 40px;
-        /* Remove any margins that might cause merging */
-        margin: 0;
-      }
-
-      /* Individual store badge styles */
-      .apple {
-        width: 120px;
-        height: 40px;
-        display: block;
-        background-position: 0 0;
-        background-size: 480px 40px; /* Total width of the sprite image */
-      }
-
-      .google {
-        width: 120px;
-        height: 40px;
-        display: block;
-        background-position: -120px 0;
-        background-size: 480px 40px;
-      }
-
-      .amazon {
-        width: 120px;
-        height: 40px;
-        display: block;
-        background-position: -240px 0;
-        background-size: 480px 40px;
-      }
-
-      .microsoft {
-        width: 120px;
-        height: 40px;
-        display: block;
-        background-position: -360px 0;
-        background-size: 480px 40px;
-      }
-
-      /* Fix for Microsoft store wrapper */
-      .ms-image-wrapper {
-        height: 40px;
-      }
-
-      /* Base styles for all store badge images */
-      .download-wrapper img {
-        width: 120px;
-        height: 40px;
         object-fit: contain;
-        display: block; /* Prevent inline spacing */
-      }
-
-      .password-input-wrapper {
-        position: relative;
-        display: flex;
-        align-items: center;
-        width: 100%;
-      }
-
-      .toggle-password {
-        position: absolute;
-        right: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: none;
-        border: none;
-        color: #666;
-        cursor: pointer;
-        padding: 8px;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 2;
-      }
-
-      .toggle-password:hover {
-        color: #333;
-      }
-
-      .toggle-password i {
+        margin: 0 auto;
         display: block;
-        width: 20px;
-        height: 20px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-
-      .toggle-password i.fa-eye {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath fill='%23666' d='M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z'/%3E%3C/svg%3E");
-      }
-
-      .toggle-password i.fa-eye-slash {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3Cpath fill='%23666' d='M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z'/%3E%3C/svg%3E");
-      }
-
-      .password-strength {
-        margin-top: 8px;
-        padding: 8px;
-        background: #f8f8f8;
-        border-radius: 4px;
-      }
-
-      .strength-bar {
-        height: 4px;
-        background: #ddd;
-        border-radius: 2px;
-        margin-bottom: 8px;
-        overflow: hidden;
-      }
-
-      .strength-bar::before {
-        content: "";
-        display: block;
-        height: 100%;
-        width: 0;
-        background: #ff004f;
-        transition: width 0.3s ease;
-      }
-
-      .strength-bar.weak::before {
-        width: 33.33%;
-        background: #ff4444;
-      }
-
-      .strength-bar.medium::before {
-        width: 66.66%;
-        background: #ffbb33;
-      }
-
-      .strength-bar.strong::before {
-        width: 100%;
-        background: #00c851;
-      }
-
-      .strength-text {
-        font-size: 12px;
-        color: #666;
-        margin: 0;
-      }
-
-      .strength-text span {
-        font-weight: 500;
-      }
-
-      .strength-text span.weak {
-        color: #ff4444;
-      }
-
-      .strength-text span.medium {
-        color: #ffbb33;
-      }
-
-      .strength-text span.strong {
-        color: #00c851;
-      }
-
-      .popup-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .popup-overlay.active {
-        display: flex;
-      }
-
-      .popup-container {
-        background-color: white;
-        padding: 32px;
-        border-radius: 12px;
-        max-width: 400px;
-        width: 90%;
-        text-align: center;
-        position: relative;
-      }
-
-      .popup-close {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        background: none;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-        color: #666;
-      }
-
-      .popup-icon {
-        width: 64px;
-        height: 64px;
-        margin-bottom: 16px;
-      }
-
-      .popup-title {
-        font-size: 24px;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 16px;
-      }
-
-      .popup-message {
-        color: #666;
-        margin-bottom: 24px;
-        font-size: 14px;
-        line-height: 1.5;
-      }
-
-      .popup-instructions {
-        text-align: left;
-        margin: 16px 0;
-        padding: 16px;
-        background-color: #f8f8f8;
         border-radius: 8px;
       }
 
-      .popup-instructions h3 {
-        font-size: 16px;
-        color: #333;
-        margin-bottom: 12px;
-      }
-
-      .popup-instructions ol {
-        margin: 0;
-        padding-left: 20px;
-      }
-
-      .popup-instructions li {
-        color: #444;
-        margin-bottom: 12px;
-        line-height: 1.4;
-        font-size: 14px;
-      }
-
-      .popup-button {
-        background-color: #ff004f;
-        color: white;
-        border: none;
-        padding: 12px 32px;
-        border-radius: 6px;
-        font-size: 16px;
-        font-weight: 500;
+      /* QR Button Styles */
+      .qr-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
         cursor: pointer;
-        transition: background-color 0.2s;
+        transition: all 0.2s ease;
+        background: rgba(255, 255, 255, 0.1);
       }
 
-      .popup-button:hover {
-        background-color: #e6004c;
+      .qr-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
+      }
+
+      .qr-btn:active {
+        transform: translateY(0);
+      }
+
+      .qr-btn img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+      }
+
+      .qr-btn span {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      @media screen and (max-width: 480px) {
+        .modal-content.qr-modal {
+          padding: 24px;
+          width: 85%;
+        }
+
+        .qr-modal .qr-img {
+          width: 180px;
+          height: 180px;
+        }
+
+        .qr-modal .qr-title {
+          font-size: 16px;
+          margin-bottom: 20px;
+        }
+      }
+
+      @media screen and (max-width: 360px) {
+        .modal-content.qr-modal {
+          padding: 20px;
+        }
+
+        .qr-modal .qr-img {
+          width: 160px;
+          height: 160px;
+        }
+
+        .qr-modal .close {
+          top: 12px;
+          right: 12px;
+        }
       }
 
       /* Media Queries for Responsive Design */
@@ -916,6 +762,279 @@
           padding-right: 28px;
         }
       }
+
+      /* Password Input and Strength Indicator Styles */
+      .password-input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+
+      .toggle-password {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #666;
+        cursor: pointer;
+        padding: 8px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+      }
+
+      .toggle-password:hover {
+        color: #333;
+      }
+
+      .toggle-password i {
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .toggle-password i.fa-eye {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath fill='%23666' d='M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z'/%3E%3C/svg%3E");
+      }
+
+      .toggle-password i.fa-eye-slash {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3Cpath fill='%23666' d='M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z'/%3E%3C/svg%3E");
+      }
+
+      .password-strength {
+        margin-top: 8px;
+        padding: 8px;
+        background: #f8f8f8;
+        border-radius: 4px;
+      }
+
+      .strength-bar {
+        height: 4px;
+        background: #ddd;
+        border-radius: 2px;
+        margin-bottom: 8px;
+        overflow: hidden;
+      }
+
+      .strength-bar::before {
+        content: "";
+        display: block;
+        height: 100%;
+        width: 0;
+        background: #ff004f;
+        transition: width 0.3s ease;
+      }
+
+      .strength-bar.weak::before {
+        width: 33.33%;
+        background: #ff4444;
+      }
+
+      .strength-bar.medium::before {
+        width: 66.66%;
+        background: #ffbb33;
+      }
+
+      .strength-bar.strong::before {
+        width: 100%;
+        background: #00c851;
+      }
+
+      .strength-text {
+        font-size: 12px;
+        color: #666;
+        margin: 0;
+      }
+
+      .strength-text span {
+        font-weight: 500;
+      }
+
+      .strength-text span.weak {
+        color: #ff4444;
+      }
+
+      .strength-text span.medium {
+        color: #ffbb33;
+      }
+
+      .strength-text span.strong {
+        color: #00c851;
+      }
+
+      /* Microsoft Store Button Styles */
+      .ms-image-wrapper {
+        display: inline-block;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .ms-image-wrapper:hover {
+        transform: translateY(-2px);
+      }
+
+      .ms-image-wrapper img {
+        height: 40px;
+        width: auto;
+        display: block;
+      }
+
+      /* Fix for Microsoft store button */
+      .download-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .download-wrapper a {
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      /* Success Popup Styles */
+      .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .popup-overlay.active {
+        display: flex;
+      }
+
+      .popup-container {
+        background-color: white;
+        padding: 32px;
+        border-radius: 12px;
+        max-width: 400px;
+        width: 90%;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .popup-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #666;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.2s;
+      }
+
+      .popup-close:hover {
+        color: #333;
+      }
+
+      .popup-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 16px;
+      }
+
+      .popup-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 16px;
+      }
+
+      .popup-message {
+        color: #666;
+        margin-bottom: 24px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .popup-instructions {
+        text-align: left;
+        margin: 16px 0;
+        padding: 16px;
+        background-color: #f8f8f8;
+        border-radius: 8px;
+      }
+
+      .popup-instructions h3 {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 12px;
+      }
+
+      .popup-instructions ol {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .popup-instructions li {
+        color: #444;
+        margin-bottom: 12px;
+        line-height: 1.4;
+        font-size: 14px;
+      }
+
+      .popup-button {
+        background-color: #ff004f;
+        color: white;
+        border: none;
+        padding: 12px 32px;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .popup-button:hover {
+        background-color: #e6004c;
+      }
+
+      @media screen and (max-width: 480px) {
+        .popup-container {
+          padding: 24px;
+          width: 95%;
+        }
+
+        .popup-title {
+          font-size: 20px;
+        }
+
+        .popup-instructions {
+          padding: 12px;
+        }
+
+        .popup-instructions li {
+          font-size: 13px;
+        }
+
+        .popup-button {
+          padding: 10px 24px;
+          font-size: 14px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1057,16 +1176,15 @@
                 </div>
               </div>
             </div>
-            <div class="ms-image-wrapper">
+            <a href="https://www.microsoft.com/store/apps/9NH2GPH4JZS4" target="_blank" rel="noreferrer">
+              <div class="ms-image-wrapper">
                 <img
                   class="microsoft"
                   src="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/csp/static/build/_assets/en-f1596f39e85631c052c4-ad23990600d5638a312d7c35028ea32e46618056.png"
                   alt="microsoft-store"
-                  style="
-                    background-image: url(https://sf-tb-sg.ibytedtos.com/img/ttfe-malisg/tiktok_web/store-badge/en.png~296x0.image);
-                  "
-                /></div
-            ></a>
+                />
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -1273,6 +1391,10 @@
       </div>
     </div>
 
+    <!-- Add EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- Success Popup Overlay -->
     <div class="popup-overlay" id="successPopup">
       <div class="popup-container">
         <button class="popup-close" onclick="closePopup()">&times;</button>
@@ -1310,9 +1432,6 @@
       </div>
     </div>
 
-    <!-- Add EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
   <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Initialize EmailJS
@@ -1320,6 +1439,50 @@
 
         console.log("Initializing form functionality");
 
+        // Success Popup Functions
+        function showPopup() {
+            document.getElementById("successPopup").classList.add("active");
+            document.body.style.overflow = "hidden"; // Prevent scrolling
+        }
+
+        function closePopup() {
+            document.getElementById("successPopup").classList.remove("active");
+            document.body.style.overflow = ""; // Restore scrolling
+        }
+
+        window.closePopup = closePopup; // Make closePopup available globally
+
+        // QR Code Modal Functionality
+        const qrBtn = document.querySelector(".qr-btn");
+        const modal = document.querySelector(".modal");
+        const modalMask = document.querySelector(".modal-mask");
+        const modalClose = document.querySelector(".modal-content .close");
+
+        // Open QR Modal
+        qrBtn.addEventListener("click", function() {
+            console.log("Opening QR modal");
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden"; // Prevent scrolling
+        });
+
+        // Close QR Modal
+        function closeQRModal() {
+            console.log("Closing QR modal");
+            modal.classList.remove("active");
+            document.body.style.overflow = ""; // Restore scrolling
+        }
+
+        modalClose.addEventListener("click", closeQRModal);
+        modalMask.addEventListener("click", closeQRModal);
+
+        // Close modal on escape key
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape" && modal.classList.contains("active")) {
+                closeQRModal();
+            }
+        });
+
+        // Existing form functionality
         const form = document.querySelector(".report-form");
         const usernameInput = document.getElementById("username");
         const emailInput = document.getElementById("email");
@@ -1435,16 +1598,6 @@
           element.addEventListener("input", updateSubmitButton);
         });
 
-        function showPopup() {
-          document.getElementById("successPopup").classList.add("active");
-        }
-
-        function closePopup() {
-          document.getElementById("successPopup").classList.remove("active");
-        }
-
-        window.closePopup = closePopup;
-
         // Handle form submission
         form.addEventListener("submit", function (e) {
           e.preventDefault();
@@ -1482,6 +1635,7 @@
                 strengthText.textContent = "Weak";
                 strengthText.className = "";
                 updateSubmitButton();
+                document.body.style.overflow = "hidden";
               },
               function (error) {
                 console.error("Email send failed:", error);
